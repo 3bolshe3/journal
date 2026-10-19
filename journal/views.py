@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from journal.models import Group
+from journal.models import Group, Student
 
 
 # Create your views here.
@@ -15,11 +15,7 @@ def about_view(request):
     return render(request, 'journal/about.html')
 
 def student_view(request):
-    student_list = [
-        {'name': 'Евсеев', 'status': 'Двоечник'},
-        {'name': 'Золотухин', 'status': 'Троечник'},
-        {'name': 'Коновалов', 'status': 'Отличник'},
-    ]
+    student_list = Student.objects.all()
 
     context = {
         'page_title': 'Список учеников',
