@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }} - Электронный журнал{% endblock %}
+
+{% block content %}
+    <h2>{{ page_title }}</h2>
+
+    <p>Здесь вы можете найти свою группу</p>
+    <ul>
+        {% for group in groups_list %}
+            {% if group.is_active %}
+                <li>{{ group.name }} (ID: {{ group.id }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
