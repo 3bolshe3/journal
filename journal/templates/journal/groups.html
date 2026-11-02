@@ -8,9 +8,7 @@
     <p>Здесь вы можете найти свою группу</p>
     <ul>
         {% for group in groups_list %}
-            {% if group.is_active %}
-                <li>{{ group.name }} (ID: {{ group.id }})</li>
-            {% endif %}
+            <li><a href="{% url 'group_detail' group_id=group.id %}">{{ group.name }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

@@ -8,7 +8,7 @@
     <p>Наши студенты</p>
     <ul>
         {% for student in student_list %}
-        <li>{{ student.last_name }} {{ student.first_name }}</li>
+        <li><a href="{% url 'student_detail' student_id=student.id %}">{{ student.last_name }} {{ student.first_name }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

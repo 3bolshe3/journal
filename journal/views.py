@@ -33,6 +33,8 @@ def groups_view(request):
     }
 
     return render(request, 'journal/groups.html', context)
+
+
 def group_detail_view(request, group_id):
     group = Group.objects.get(pk=group_id)
     students_in_group = group.students.all()
@@ -45,6 +47,6 @@ def group_detail_view(request, group_id):
     return render(request, 'journal/group_detail.html', context)
 
 
-
-
-
+def student_detail_view(request, student_id):
+    student = Student.objects.get(pk=student_id)
+    return render(request, 'journal/student_detail.html', {'student': student})
